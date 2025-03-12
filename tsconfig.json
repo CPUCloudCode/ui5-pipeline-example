@@ -28,5 +28,8 @@
   },
   "include": [
     "./webapp/**/*"
+  ],
+  "exclude": [
+    "./webapp/test/wdi5/**"
   ]
 }
