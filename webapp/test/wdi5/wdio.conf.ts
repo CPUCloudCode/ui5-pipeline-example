@@ -6,7 +6,7 @@ export const config: wdi5Config = {
     // ====================
     //
     wdi5: {
-    //     screenshotPath: require("path").join("some", "dir", "for", "screenshots"),c // [optional] {string}, default: ""
+         screenshotPath: require("path").join("webapp", "test", "wdi5", "screenshots"), // [optional] {string}, default: ""
     //     screenshotsDisabled: false, // [optional] {boolean}, default: false; if set to true, screenshots won't be taken and not written to file system
     //     logLevel: "error", // [optional] error | verbose | silent, default: "error"
     //     skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
@@ -298,8 +298,13 @@ export const config: wdi5Config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    ,
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if(error) {
+            console.log("ERROOOOOR")
+            await browser.screenshot("HellNAH")
+        }
+    },
 
     /**
      * Hook that gets executed after the suite has ended
