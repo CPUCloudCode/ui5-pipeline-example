@@ -9,7 +9,7 @@ export const config: wdi5Config = {
          screenshotPath: require("path").join("webapp", "test", "wdi5", "screenshots"), // [optional] {string}, default: ""
     //     screenshotsDisabled: false, // [optional] {boolean}, default: false; if set to true, screenshots won't be taken and not written to file system
     //     logLevel: "error", // [optional] error | verbose | silent, default: "error"
-    //     skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
+         skipInjectUI5OnStart: true, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
          waitForUI5Timeout: 30000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
     //     btpWorkZoneEnablement: false // [optional] {boolean}, default: false; whether to instruct wdi5 to inject itself in both the SAP Build Workzone, standard edition, shell and app
     },
@@ -108,7 +108,7 @@ export const config: wdi5Config = {
                     "devtools.console.stdout.content": true
                 }
             },
-            acceptInsecureCerts: true
+            acceptInsecureCerts: true,
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
